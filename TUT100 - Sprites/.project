@@ -14,13 +14,17 @@
 		<link>
 			<name>script</name>
 			<type>2</type>
-			<locationURI>copy_PROJECT_LOC/frameworks/js-bindings/bindings/script</locationURI>
+			<locationURI>copy_PROJECT_LOC1/frameworks/js-bindings/bindings/script</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>
 		<variable>
 			<name>copy_PROJECT_LOC</name>
 			<value>$%7BPARENT-1-PROJECT_LOC%7D/Git/ISP-Project/CocosProject</value>
+		</variable>
+		<variable>
+			<name>copy_PROJECT_LOC1</name>
+			<value>$%7BPARENT-2-PROJECT_LOC%7D/ISP-Project/CocosProject</value>
 		</variable>
 	</variableList>
 </projectDescription>
