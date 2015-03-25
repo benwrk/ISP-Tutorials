@@ -4,12 +4,18 @@ var GameLayer = cc.LayerColor.extend({
 		this.setPosition(0, 0);
 		console.log('Initialized');
 		
-		var ship = new Ship();
-		ship.setPosition(200, 200);
-		this.addChild(ship);
-		console.log('Ship added');
+		var ship1 = new Ship();
+		ship1.setPosition(200, 200);
+		this.addChild(ship1);
+		console.log('Ship1 added');
 		
-		ship.scheduleUpdate();
+		var ship2 = new Ship();
+		ship2.setPosition(300, 200);
+		this.addChild(ship2);
+		console.log('Ship2 added');
+		
+		ship1.scheduleUpdate();
+		ship2.scheduleUpdate();
 		
 		return true;
 	}

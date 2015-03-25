@@ -1,3 +1,4 @@
+
 var Ship = cc.Sprite.extend({
 	ctor: function() {
 		this._super();
@@ -6,7 +7,10 @@ var Ship = cc.Sprite.extend({
 	},
 
 	update: function(dt) {
-		var pos = this.getPosition();
-		this.setPosition(pos.x, pos.y + 5);
+		this.setPosition(this.getPositionX(), this.getPositionY() + 5);
+		if (this.getPositionY() > screenHeight) {
+			this.setPositionY(0);
+		}
+		console.log('Ship.update | ' + this._name + ' | setPosition(' + this.getPositionX() + ', ' + this.getPositionY() + ')');
 	}
 });
