@@ -23,13 +23,17 @@ var GameLayer = cc.LayerColor.extend({
 		return true;
 	},
 	
+	startGame: function() {
+		this.createPillarPair();
+		this.player.start();
+		this.player.jump();
+	},
+	
 	onKeyDown: function(keyCode, event) {
 		console.log('KeyDown: ' + keyCode.toString());
 		if (this.state === GameLayer.STATES.FRONT) {
 			this.state = GameLayer.STATES.STARTED;
-			this.createPillarPair();
-			this.player.start();
-			this.player.jump();
+			this.startGame();
 		}
 		else if (this.state === GameLayer.STATES.STARTED) {
 			this.player.jump();
