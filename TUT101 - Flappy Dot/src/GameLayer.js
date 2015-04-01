@@ -10,10 +10,7 @@ var GameLayer = cc.LayerColor.extend({
 		this.scoreLabel.setPosition(screenWidth - 50, screenHeight - 50);
 		this.addChild(this.scoreLabel);
 		
-		this.pillarPair = new PillarPair();
-		this.pillarPair.setPosition(700, 300);
-		this.addChild(this.pillarPair);
-		this.pillarPair.scheduleUpdate();
+		this.pillarPair = null;
 		
 		this.player = new Player();
 		this.player.setPosition(screenWidth / 2, screenHeight / 2);
@@ -30,6 +27,7 @@ var GameLayer = cc.LayerColor.extend({
 		console.log('KeyDown: ' + keyCode.toString());
 		if (this.state === GameLayer.STATES.FRONT) {
 			this.state = GameLayer.STATES.STARTED;
+			this.createPillarPair();
 			this.player.start();
 			this.player.jump();
 		}
@@ -57,6 +55,13 @@ var GameLayer = cc.LayerColor.extend({
 	
 	update: function() {
 		
+	},
+	
+	createPillarPair: function() {
+		this.pillarPair = new PillarPair();
+		this.pillarPair.setPosition(new cc.Point(900, 300));
+		this.addChild(this.pillarPair);
+		this.pillarPair.scheduleUpdate();
 	}
 });
 
