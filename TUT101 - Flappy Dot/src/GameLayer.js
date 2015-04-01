@@ -31,12 +31,30 @@ var GameLayer = cc.LayerColor.extend({
 	
 	onKeyDown: function(keyCode, event) {
 		console.log('KeyDown: ' + keyCode.toString());
-		if (this.state === GameLayer.STATES.FRONT) {
+		if (keyCode == cc.KEY.d) {
+			this.state = GameLayer.STATES.DEBUG;
+		} else if (this.state === GameLayer.STATES.FRONT) {
 			this.state = GameLayer.STATES.STARTED;
 			this.startGame();
-		}
-		else if (this.state === GameLayer.STATES.STARTED) {
+		} else if (this.state === GameLayer.STATES.STARTED) {
 			this.player.jump();
+		}
+		
+		if (keyCode == cc.KEY.right) {
+			this.player.setPositionX(this.player.getPositionX() + 5);
+		}
+		if (keyCode == cc.KEY.left) {
+			this.player.setPositionX(this.player.getPositionX() - 5);
+		}
+		if (keyCode == cc.KEY.up) {
+			this.player.setPositionY(this.player.getPositionY() + 5);
+		}
+		if (keyCode == cc.KEY.down) {
+			this.player.setPositionY(this.player.getPositionY() - 5);
+		}
+		
+		if (this.pillarPair.hit(this.player)) {
+			console.log('HIT');
 		}
 	},
 	
@@ -58,12 +76,18 @@ var GameLayer = cc.LayerColor.extend({
 	},
 	
 	update: function() {
-		
+		if (this.state === GameLayer.STATES.STARTED && this.pillarPair.hit(this.player)) {
+			console.log('HIT');
+		}
+		if (this.state === GameLayer.STATES.DEBUG) {
+			this.pillarPair.unscheduleUpdate();
+			this.player.unscheduleUpdate();
+		}
 	},
 	
 	createPillarPair: function() {
 		this.pillarPair = new PillarPair();
-		this.pillarPair.setPosition(new cc.Point(900, 300));
+		this.pillarPair.setPosition(900, 300);
 		this.addChild(this.pillarPair);
 		this.pillarPair.scheduleUpdate();
 	}
@@ -81,5 +105,6 @@ var StartScene = cc.Scene.extend({
 
 GameLayer.STATES = {
 		FRONT: 1,
-		STARTED: 2
+		STARTED: 2,
+		DEBUG: 3
 };
