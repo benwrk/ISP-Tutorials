@@ -3,15 +3,22 @@ var Player = cc.Sprite.extend({
 		this._super();
 		this.initWithFile('res/images/Dot.png');
 		this.setScale(0.0234375, 0.0234375);
-		
+		this.started = false;
+
 		this.verticalVelocity = Player.STARTING_VELOCITY;
 	},
-	
-	update: function(dt) {
-		this.setPosition(this.getPositionX(), this.getPositionY() + this.verticalVelocity);
-		this.verticalVelocity += Player.GRAVITY;
+
+	start: function() {
+		this.started = true;
 	},
-	
+
+	update: function(dt) {
+		if (this.started) {
+			this.setPosition(this.getPositionX(), this.getPositionY() + this.verticalVelocity);
+			this.verticalVelocity += Player.GRAVITY;
+		}
+	},
+
 	jump: function() {
 		this.verticalVelocity = Player.JUMPING_VELOCITY;
 	}
