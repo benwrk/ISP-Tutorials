@@ -29,11 +29,11 @@ var GameLayer = cc.LayerColor.extend({
 		this.player.jump();
 	},
 	
-	restartGame: function() {
+	restartGame: function() {  
 		this.player.start();
 		this.player.verticalVelocity = Player.STARTING_VELOCITY;
 		this.player.setPosition(screenWidth / 2, screenHeight / 2);
-		this.pillarPair.setPosition(900, 300);
+		this.pillarPair.setPosition(new cc.p(900, 300));
 		if (this.state !== GameLayer.STATES.STARTED) {
 			this.player.scheduleUpdate();
 			this.pillarPair.scheduleUpdate();
