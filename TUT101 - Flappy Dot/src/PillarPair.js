@@ -11,4 +11,8 @@ var PillarPair = cc.Node.extend({
 		this.bottomPillar.setPosition(0, -100);
 		this.addChild(this.bottomPillar);
 	},
+	
+	update: function(dt) {
+		this.setPositionX(this.getPositionX() - 5);
+	}
 });

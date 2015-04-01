@@ -13,6 +13,7 @@ var GameLayer = cc.LayerColor.extend({
 		this.pillarPair = new PillarPair();
 		this.pillarPair.setPosition(700, 300);
 		this.addChild(this.pillarPair);
+		this.pillarPair.scheduleUpdate();
 		
 		this.player = new Player();
 		this.player.setPosition(screenWidth / 2, screenHeight / 2);
