@@ -37,8 +37,10 @@ var Ship = cc.Sprite.extend({
 	switchDirection: function() {
 		if (this.direction === Ship.DIR.UP) {
 			this.direction = Ship.DIR.RIGHT;
+			this.setRotation(90);
 		} else {
 			this.direction = Ship.DIR.UP;
+			this.setRotation(0);
 		}
 	}
 });
