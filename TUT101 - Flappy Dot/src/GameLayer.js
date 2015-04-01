@@ -21,6 +21,7 @@ var GameLayer = cc.LayerColor.extend({
 	
 	onKeyDown: function(keyCode, event) {
 		console.log('KeyDown: ' + keyCode.toString());
+		this.player.jump();
 	},
 	
 	onKeyUp: function(keyCode, event) {

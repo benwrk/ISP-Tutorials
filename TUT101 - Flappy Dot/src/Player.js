@@ -10,8 +10,13 @@ var Player = cc.Sprite.extend({
 	update: function(dt) {
 		this.setPosition(this.getPositionX(), this.getPositionY() + this.verticalVelocity);
 		this.verticalVelocity += Player.GRAVITY;
+	},
+	
+	jump: function() {
+		this.verticalVelocity = Player.JUMPING_VELOCITY;
 	}
 });
 
 Player.GRAVITY = -1;
 Player.STARTING_VELOCITY = 15;
+Player.JUMPING_VELOCITY = 15;
