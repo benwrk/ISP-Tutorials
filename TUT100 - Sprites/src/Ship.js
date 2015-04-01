@@ -11,6 +11,6 @@ var Ship = cc.Sprite.extend({
 		if (this.getPositionY() > screenHeight) {
 			this.setPositionY(0);
 		}
-		console.log('Ship.update | ' + this._name + ' | setPosition(' + this.getPositionX() + ', ' + this.getPositionY() + ')');
+		//console.log('Ship.update | ' + this._name + ' | setPosition(' + this.getPositionX() + ', ' + this.getPositionY() + ')');
 	}
 });

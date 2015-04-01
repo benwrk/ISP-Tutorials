@@ -17,7 +17,30 @@ var GameLayer = cc.LayerColor.extend({
 		ship1.scheduleUpdate();
 		ship2.scheduleUpdate();
 		
+		this.addKeyboardHandlers();
+		
 		return true;
+	},
+	
+	onKeyDown: function(keyCode, event) {
+		console.log('KeyDown: ' + keyCode.toString());
+	},
+	
+	onKeyUp: function(keyCode, event) {
+		console.log('KeyUp: ' + keyCode.toString());
+	},
+	
+	addKeyboardHandlers: function() {
+		var self = this;
+		cc.eventManager.addListener({
+			event: cc.EventListener.KEYBOARD,
+			onKeyPressed: function(keyCode, event) {
+				self.onKeyDown(keyCode, event);
+			},
+			onKeyReleased: function(keyCode, event) {
+				self.onKeyUp(keyCode, event);
+			}
+		}, this);
 	}
 });
 
