@@ -13,6 +13,10 @@ var GameLayer = cc.LayerColor.extend({
 		this.addChild(this.gold);
 		this.gold.randomPosition();
 		
+		this.scoreLabel = cc.LabelTTF.create('0', 'Arial', 40);
+		this.scoreLabel.setPosition(screenWidth - 50, screenHeight - 50);
+		this.addChild(this.scoreLabel);
+		
 		this.addKeyboardHandlers();
 		this.scheduleUpdate();
 		
@@ -46,6 +50,7 @@ var GameLayer = cc.LayerColor.extend({
 	update: function() {
 		if (this.gold.closeTo(this.ship)) {
 			this.gold.randomPosition();
+			this.scoreLabel.setString(parseInt(this.scoreLabel.getString(), 10) + 5);
 		}
 	}
 });
