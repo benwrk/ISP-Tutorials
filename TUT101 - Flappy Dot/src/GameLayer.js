@@ -4,15 +4,6 @@ var GameLayer = cc.LayerColor.extend({
 		this.setPosition(0, 0);
 		console.log('Initialized');
 		
-		this.ship = new Ship();
-		this.ship.setPosition(200, 220);
-		this.addChild(this.ship);
-		this.ship.scheduleUpdate();
-		
-		this.gold = new Gold();
-		this.addChild(this.gold);
-		this.gold.randomPosition();
-		
 		this.scoreLabel = cc.LabelTTF.create('0', 'Arial', 40);
 		this.scoreLabel.setPosition(screenWidth - 50, screenHeight - 50);
 		this.addChild(this.scoreLabel);
@@ -25,9 +16,6 @@ var GameLayer = cc.LayerColor.extend({
 	
 	onKeyDown: function(keyCode, event) {
 		console.log('KeyDown: ' + keyCode.toString());
-		if (keyCode == cc.KEY.space) {
-			this.ship.switchDirection();
-		}
 	},
 	
 	onKeyUp: function(keyCode, event) {
@@ -48,10 +36,7 @@ var GameLayer = cc.LayerColor.extend({
 	},
 	
 	update: function() {
-		if (this.gold.closeTo(this.ship)) {
-			this.gold.randomPosition();
-			this.scoreLabel.setString(parseInt(this.scoreLabel.getString(), 10) + 5);
-		}
+		
 	}
 });
 
