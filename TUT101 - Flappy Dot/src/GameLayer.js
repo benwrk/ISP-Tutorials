@@ -14,7 +14,7 @@ var GameLayer = cc.LayerColor.extend({
 		
 		this.player = new Player();
 		this.player.setPosition(screenWidth / 2, screenHeight / 2);
-		this.addChild(this.player);
+		this.addChild(this.player, 1);
 		this.player.scheduleUpdate();
 		
 		this.addKeyboardHandlers();
