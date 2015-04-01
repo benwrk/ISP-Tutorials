@@ -4,18 +4,10 @@ var GameLayer = cc.LayerColor.extend({
 		this.setPosition(0, 0);
 		console.log('Initialized');
 		
-		var ship1 = new Ship();
-		ship1.setPosition(200, 200);
-		this.addChild(ship1);
-		console.log('Ship1 added');
-		
-		var ship2 = new Ship();
-		ship2.setPosition(300, 200);
-		this.addChild(ship2);
-		console.log('Ship2 added');
-		
-		ship1.scheduleUpdate();
-		ship2.scheduleUpdate();
+		this.ship = new Ship();
+		this.ship.setPosition(200, 220);
+		this.addChild(this.ship);
+		this.ship.scheduleUpdate();
 		
 		this.addKeyboardHandlers();
 		
@@ -24,6 +16,9 @@ var GameLayer = cc.LayerColor.extend({
 	
 	onKeyDown: function(keyCode, event) {
 		console.log('KeyDown: ' + keyCode.toString());
+		if (keyCode == cc.KEY.space) {
+			this.ship.switchDirection();
+		}
 	},
 	
 	onKeyUp: function(keyCode, event) {

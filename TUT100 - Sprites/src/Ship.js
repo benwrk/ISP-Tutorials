@@ -8,13 +8,13 @@ var Ship = cc.Sprite.extend({
 	},
 
 	update: function(dt) {
-		if (direction === Ship.DIR.UP) {
+		if (this.direction === Ship.DIR.UP) {
 			this.setPosition(this.getPositionX(), this.getPositionY() + 5);
-		} else if (direction === Ship.DIR.RIGHT) {
+		} else if (this.direction === Ship.DIR.RIGHT) {
 			this.setPosition(this.getPositionX() + 5, this.getPositionY());
-		} else if (direction === Ship.DIR.DOWN) {
+		} else if (this.direction === Ship.DIR.DOWN) {
 			this.setPosition(this.getPositionX(), this.getPositionY() - 5);
-		} else if (direction === Ship.DIR.LEFT) {
+		} else if (this.direction === Ship.DIR.LEFT) {
 			this.setPosition(this.getPositionX() - 5, this.getPositionY());
 		}
 		
@@ -32,6 +32,14 @@ var Ship = cc.Sprite.extend({
 		}
 		// console.log('Ship.update | ' + this._name + ' | setPosition(' +
 		// this.getPositionX() + ', ' + this.getPositionY() + ')');
+	},
+	
+	switchDirection: function() {
+		if (this.direction === Ship.DIR.UP) {
+			this.direction = Ship.DIR.RIGHT;
+		} else {
+			this.direction = Ship.DIR.UP;
+		}
 	}
 });
 
