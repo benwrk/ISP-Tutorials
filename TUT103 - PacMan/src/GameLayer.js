@@ -8,6 +8,10 @@ var GameLayer = cc.LayerColor.extend({
 		this.scoreLabel.setPosition(screenWidth - 50, screenHeight - 50);
 		this.addChild(this.scoreLabel);
 		
+		this.maze = new Maze();
+		this.maze.setPosition(0, 40);
+		this.addChild(this.maze);
+		
 		this.addKeyboardHandlers();
 		this.scheduleUpdate();
 		
