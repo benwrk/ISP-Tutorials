@@ -14,7 +14,7 @@
 		<link>
 			<name>script</name>
 			<type>2</type>
-			<locationURI>copy_PROJECT_LOC/frameworks/js-bindings/bindings/script</locationURI>
+			<locationURI>copy_PROJECT_LOC1/frameworks/js-bindings/bindings/script</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>
