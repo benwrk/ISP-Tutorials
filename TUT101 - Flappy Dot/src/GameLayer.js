@@ -8,6 +8,11 @@ var GameLayer = cc.LayerColor.extend({
 		this.scoreLabel.setPosition(screenWidth - 50, screenHeight - 50);
 		this.addChild(this.scoreLabel);
 		
+		this.player = new Player();
+		this.player.setPosition(screenWidth / 2, screenHeight / 2);
+		this.addChild(this.player);
+		this.player.scheduleUpdate();
+		
 		this.addKeyboardHandlers();
 		this.scheduleUpdate();
 		

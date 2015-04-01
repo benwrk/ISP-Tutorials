@@ -12,7 +12,6 @@
     "jsList":[
         "src/resource.js",
         "src/GameLayer.js",
-        "src/Ship.js",
-        "src/Gold.js"
+        "src/Player.js"
     ]
 }
