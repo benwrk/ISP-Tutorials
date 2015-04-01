@@ -9,7 +9,12 @@ var GameLayer = cc.LayerColor.extend({
 		this.addChild(this.ship);
 		this.ship.scheduleUpdate();
 		
+		this.gold = new Gold();
+		this.addChild(this.gold);
+		this.gold.randomPosition();
+		
 		this.addKeyboardHandlers();
+		this.scheduleUpdate();
 		
 		return true;
 	},
@@ -36,6 +41,12 @@ var GameLayer = cc.LayerColor.extend({
 				self.onKeyUp(keyCode, event);
 			}
 		}, this);
+	},
+	
+	update: function() {
+		if (this.gold.closeTo(this.ship)) {
+			this.gold.randomPosition();
+		}
 	}
 });
 
