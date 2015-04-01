@@ -11,6 +11,10 @@ var Player = cc.Sprite.extend({
 	start: function() {
 		this.started = true;
 	},
+	
+	stop: function() {
+		this.started = false;
+	},
 
 	update: function(dt) {
 		if (this.started) {
