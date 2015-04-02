@@ -24,6 +24,20 @@ var GameLayer = cc.LayerColor.extend({
 	
 	onKeyDown: function(keyCode, event) {
 		console.log('KeyDown: ' + keyCode.toString());
+		switch (keyCode) {
+		case cc.KEY.left:
+			this.pacman.setNextDirection(Pacman.DIRECTIONS.LEFT);
+			break;
+		case cc.KEY.right:
+			this.pacman.setNextDirection(Pacman.DIRECTIONS.RIGHT);
+			break;
+		case cc.KEY.up:
+			this.pacman.setNextDirection(Pacman.DIRECTIONS.UP);
+			break;
+		case cc.KEY.down:
+			this.pacman.setNextDirection(Pacman.DIRECTIONS.DOWN);
+			break;
+		}
 	},
 	
 	onKeyUp: function(keyCode, event) {
