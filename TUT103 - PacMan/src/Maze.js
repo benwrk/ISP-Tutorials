@@ -24,6 +24,10 @@ var Maze = cc.Node.extend({
 					s.setAnchorPoint(0, 0);
 					s.setPosition(c * 40, (this.HEIGHT - r - 1) * 40);
 					this.addChild(s);
+				} else if (this.MAP[r][c] == '.') {
+					var d = new Dot();
+					d.setPosition(c * 40 + 20, (this.HEIGHT - r - 1) * 40 + 20);
+					this.addChild(d);
 				}
 			}
 		}
