@@ -16,6 +16,8 @@ var GameLayer = cc.LayerColor.extend({
 		this.maze.addChild(this.pacman);
 		this.pacman.scheduleUpdate();
 		
+		this.pacman.setMaze(this.maze);
+		
 		this.addKeyboardHandlers();
 		this.scheduleUpdate();
 		
@@ -41,7 +43,29 @@ var GameLayer = cc.LayerColor.extend({
 	},
 	
 	onKeyUp: function(keyCode, event) {
-		// console.log('KeyUp: ' + keyCode.toString());
+		console.log('KeyUp: ' + keyCode.toString());
+//		switch (keyCode) {
+//		case cc.KEY.left:
+//			if (this.pacman.direction === Pacman.DIRECTIONS.LEFT) {
+//				this.pacman.setNextDirection(Pacman.DIRECTIONS.STILL);
+//			}
+//			break;
+//		case cc.KEY.right:
+//			if (this.pacman.direction === Pacman.DIRECTIONS.RIGHT) {
+//				this.pacman.setNextDirection(Pacman.DIRECTIONS.STILL);
+//			}
+//			break;
+//		case cc.KEY.up:
+//			if (this.pacman.direction === Pacman.DIRECTIONS.UP) {
+//				this.pacman.setNextDirection(Pacman.DIRECTIONS.STILL);
+//			}
+//			break;
+//		case cc.KEY.down:
+//			if (this.pacman.direction === Pacman.DIRECTIONS.DOWN) {
+//				this.pacman.setNextDirection(Pacman.DIRECTIONS.STILL);
+//			}
+//			break;
+//		}
 	},
 	
 	addKeyboardHandlers: function() {
